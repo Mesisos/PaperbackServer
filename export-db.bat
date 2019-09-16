@@ -1,0 +1,1 @@
+mongodump -o mongo-export

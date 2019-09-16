@@ -1,0 +1,12 @@
+Hello!
+
+{{#error}}
+Oh no, it looks like there was an error displaying your invite! Here's the message: {{message}}
+{{/error}}
+
+{{#invite}}
+{{inviter.user.displayName}} invited you {{createdAtHuman}} to join the game with id {{inviter.game.objectId}}!
+
+This will include a custom protocol link with gameId to in-app stuff.
+
+{{/invite}}

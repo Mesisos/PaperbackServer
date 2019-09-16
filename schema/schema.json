@@ -1,0 +1,263 @@
+{
+	"_id": "_User",
+	"objectId": "string",
+	"updatedAt": "date",
+	"createdAt": "date",
+	"username": "string",
+	"email": "string",
+	"emailVerified": "boolean",
+	"authData": "object",
+	"displayName": "string",
+	"_metadata": {
+		"class_permissions": {
+			"get": {},
+			"find": {},
+			"create": {
+				"*": true
+			},
+			"update": {},
+			"delete": {},
+			"addField": {}
+		},
+		"indexes": {
+			"_id_": {
+				"_id": 1
+			},
+			"username_1": {
+				"username": 1
+			},
+			"email_1": {
+				"email": 1
+			}
+		}
+	},
+	"avatar": "number"
+}
+{
+	"_id": "Game",
+	"objectId": "string",
+	"updatedAt": "date",
+	"createdAt": "date",
+	"state": "number",
+	"turn": "number",
+	"config": "*Config",
+	"creator": "*_User",
+	"currentPlayer": "*Player",
+	"consecutiveTurnTimeouts": "number",
+	"lobbyTimeoutJob": "number",
+	"turnTimeoutJob": "number",
+	"_metadata": {
+		"class_permissions": {
+			"get": {},
+			"find": {},
+			"create": {},
+			"update": {},
+			"delete": {},
+			"addField": {
+				"*": true
+			}
+		},
+		"indexes": {
+			"_id_": {
+				"_id": 1
+			}
+		}
+	}
+}
+{
+	"_id": "Config",
+	"objectId": "string",
+	"updatedAt": "date",
+	"createdAt": "date",
+	"isRandom": "boolean",
+	"turnMaxSec": "number",
+	"fameCards": "object",
+	"_metadata": {
+		"class_permissions": {
+			"get": {},
+			"find": {},
+			"create": {},
+			"update": {},
+			"delete": {},
+			"addField": {
+				"*": true
+			}
+		},
+		"indexes": {
+			"_id_": {
+				"_id": 1
+			}
+		}
+	},
+	"slots": "array",
+	"playerNum": "number",
+	"typeId": "number"
+}
+{
+	"_id": "Player",
+	"objectId": "string",
+	"updatedAt": "date",
+	"createdAt": "date",
+	"game": "*Game",
+	"user": "*_User",
+	"state": "number",
+	"_metadata": {
+		"class_permissions": {
+			"get": {},
+			"find": {},
+			"create": {},
+			"update": {},
+			"delete": {},
+			"addField": {
+				"*": true
+			}
+		},
+		"indexes": {
+			"_id_": {
+				"_id": 1
+			}
+		}
+	},
+	"slot": "number"
+}
+{
+	"_id": "_Session",
+	"objectId": "string",
+	"updatedAt": "date",
+	"createdAt": "date",
+	"restricted": "boolean",
+	"user": "*_User",
+	"installationId": "string",
+	"sessionToken": "string",
+	"expiresAt": "date",
+	"createdWith": "object",
+	"_metadata": {
+		"indexes": {
+			"_id_": {
+				"_id": 1
+			}
+		}
+	}
+}
+{
+	"_id": "Turn",
+	"objectId": "string",
+	"updatedAt": "date",
+	"createdAt": "date",
+	"game": "*Game",
+	"turn": "number",
+	"player": "*Player",
+	"_metadata": {
+		"class_permissions": {
+			"get": {},
+			"find": {},
+			"create": {},
+			"update": {},
+			"delete": {},
+			"addField": {}
+		},
+		"indexes": {
+			"_id_": {
+				"_id": 1
+			}
+		}
+	},
+	"save": "string"
+}
+{
+	"_id": "Contact",
+	"objectId": "string",
+	"updatedAt": "date",
+	"createdAt": "date",
+	"user": "*_User",
+	"contact": "*_User",
+	"_metadata": {
+		"class_permissions": {
+			"get": {},
+			"find": {},
+			"create": {},
+			"update": {},
+			"delete": {},
+			"addField": {
+				"*": true
+			}
+		},
+		"indexes": {
+			"_id_": {
+				"_id": 1
+			}
+		}
+	},
+	"blocked": "boolean"
+}
+{
+	"_id": "Invite",
+	"objectId": "string",
+	"updatedAt": "date",
+	"createdAt": "date",
+	"inviter": "*Player",
+	"_metadata": {
+		"class_permissions": {
+			"get": {},
+			"find": {},
+			"create": {},
+			"update": {},
+			"delete": {},
+			"addField": {
+				"*": true
+			}
+		},
+		"indexes": {
+			"_id_": {
+				"_id": 1
+			}
+		}
+	}
+}
+{
+	"_id": "_Installation",
+	"objectId": "string",
+	"updatedAt": "date",
+	"createdAt": "date",
+	"installationId": "string",
+	"deviceToken": "string",
+	"channels": "array",
+	"deviceType": "string",
+	"pushType": "string",
+	"GCMSenderId": "string",
+	"timeZone": "string",
+	"localeIdentifier": "string",
+	"badge": "number",
+	"appVersion": "string",
+	"appName": "string",
+	"appIdentifier": "string",
+	"parseVersion": "string",
+	"UniqueId": "string",
+	"userId": "string",
+	"_metadata": {
+		"indexes": {
+			"_id_": {
+				"_id": 1
+			}
+		}
+	}
+}
+{
+	"_id": "_Role",
+	"objectId": "string",
+	"updatedAt": "date",
+	"createdAt": "date",
+	"name": "string",
+	"users": "relation\u003c_User\u003e",
+	"roles": "relation\u003c_Role\u003e",
+	"_metadata": {
+		"indexes": {
+			"_id_": {
+				"_id": 1
+			},
+			"name_1": {
+				"name": 1
+			}
+		}
+	}
+}
