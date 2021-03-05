@@ -7,6 +7,21 @@ var util = require('util');
 var humanTime = require('human-time');
 var kue = require('kue');
 var constants = require('./cloud/constants.js');
+var process = require('process');
+
+// Dirty hacks to be more resilient against blowing up.
+process.on('uncaughtException', (err, origin) => {
+  fs.writeSync(
+    process.stderr.fd,
+    `Caught exception: ${err}\n` +
+    `Exception origin: ${origin}`
+  );
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.log('Unhandled Rejection at:', promise, 'reason:', reason);
+  // Application specific logging, throwing an error, or other logic here
+});
 
 var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 var databasePrefix =
@@ -317,4 +332,3 @@ var httpServer = require('http').createServer(app);
 httpServer.listen(port, function() {
     console.log('pbserver running on port ' + port + '.');
 });
-
