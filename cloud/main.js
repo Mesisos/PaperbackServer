@@ -670,8 +670,10 @@ Parse.Cloud.define("createGame", function(req, res) {
   var user = req.user;
   if (errorOnInvalidUser(user, res)) return;
 
+    // Ignore ended games in count
   var gamesTotal = new Query(Game)
     .equalTo("creator", user)
+    .notEqualTo("state", GameState.Ended)
     .count()
   
   var recentCutoff = new Date(Date.now() - constants.GAME_LIMIT_RECENT_TIMEOUT*1000);
