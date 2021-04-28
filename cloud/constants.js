@@ -31,7 +31,7 @@ module.exports = Object.freeze({
   START_GAME_MANUAL_TIMEOUT: 10,
   START_GAME_AUTO_TIMEOUT: testTimeouts ? 30 : 2*24*60*60,
 
-  GAME_LIMIT_TOTAL: 30,
+  GAME_LIMIT_TOTAL: 40,
   GAME_LIMIT_RECENT: 20,
   GAME_LIMIT_RECENT_TIMEOUT: testTimeouts ? 5 : 60*60,
 
