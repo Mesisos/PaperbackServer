@@ -4,7 +4,7 @@
   "description": "Paperback Parse Server",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.11.2",
+    "express": "^4.17.3",
     "human-time": "0.0.1",
     "json-property-filter": "^1.2.0",
     "kerberos": "0.0.23",
